@@ -3,7 +3,7 @@ import time
 import os, sys, getopt
 import meraki, json, pprint
 
-# Set API key as an environment variable api_key=API_KEY
+# Set API key as an environment variable MERAKI_DASHBOARD_API_KEY=<API_KEY>
 #
 # DESCRIPTION:
 #  This script copies group policy values from one network to another.
