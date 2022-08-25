@@ -6,11 +6,11 @@ import meraki
 
 # Either input your API key below by uncommenting line 10 and changing line 16 to api_key=API_KEY,
 # or set an env variable (preferred) to define your API key. The former is insecure and not recommended.
-# For example, in Linux/macOS:  export MERAKI_DASHBOARD_API_KEY=093b24e85df15a3e66f1fc359f4c48493eaa1b73
-# API_KEY = '093b24e85df15a3e66f1fc359f4c48493eaa1b73'
+# For example, in Linux/macOS:  export MERAKI_DASHBOARD_API_KEY=myApiKey
+# API_KEY = 'myApiKey'
 
 # DESCRIPTION:
-# List organizations associated to API key.
+# List organization ID's associated to your API key.
 
 def main():
     # Instantiate a Meraki dashboard API session
