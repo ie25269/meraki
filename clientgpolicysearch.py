@@ -86,7 +86,7 @@ except Exception as e:
     sys.exit()
 
 # iterate through network id's and find matching clients
-
+x = 1
 for netID in network:
     nname = network[netID]
     print(f'{nname:<40} :  {netID}')
@@ -98,18 +98,22 @@ for netID in network:
         numResults = str(x-1)
         endTime = time.time()
         runTime = round((endTime - startTime),2)
+        runTimeMin = int(runTime/60)
+        if runTimeMin >= 1:
+            minString = "~" + str(runTimeMin) + " min"
+        else:
+            minString = ""
         print(f'\nERROR: stopped by User\n')
         print(f'\n----------------')
         print(f'Results: {numResults}')
         print(f'OrgID: {orgID}')
-        print(f'Runtime {runTime} sec\n')
+        print(f'Runtime: {runTime} sec  {minString}\n')
         sys.exit()
     except Exception as e:
         print(f'error: {e}')
         sys.exit()
 
 
-    x = 1
     for client in clientList:
         try:
     	    ipaddr = str(client['ip'])
@@ -130,14 +134,19 @@ for netID in network:
     	        print(f' {status:<8} {mac:<16} {ipaddr:<16} {desc:<18} {gpolicy:<14} {manuf:<14} vlan{devVlan:<4} {devName}/{devPort}')
     	        x += 1
         except KeyboardInterrupt:
-            numResults = str(x-1) 
-            endTime = time.time() 
+            numResults = str(x-1)
+            endTime = time.time()
             runTime = round((endTime - startTime),2)
-            print(f'\nERROR: stopped by User\n')
-            print(f'\n----------------') 
+            runTimeMin = int(runTime/60)
+            if runTimeMin >= 1:
+                minString = "~" + str(runTimeMin) + " min"
+            else:
+                minString = ""
+            print(f'\n----------------')
             print(f'Results: {numResults}')
             print(f'OrgID: {orgID}')
-            print(f'Runtime {runTime} sec\n')
+            print(f'Runtime: {runTime} sec  {minString}\n')
+
             sys.exit()
         except Exception as e:
     	    print(f'error: {e}')
@@ -147,10 +156,13 @@ for netID in network:
 numResults = str(x-1)
 endTime = time.time()
 runTime = round((endTime - startTime),2)
+runTimeMin = int(runTime/60)
+if runTimeMin >= 1:
+    minString = "~" + str(runTimeMin) + " min"
+else:
+    minString = ""
 print(f'\n----------------')
 print(f'Results: {numResults}')
 print(f'OrgID: {orgID}')
-print(f'Runtime {runTime} sec\n')
-
-
+print(f'Runtime: {runTime} sec  {minString}\n')
 
